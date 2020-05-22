@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:parentTag="android.widget.RelativeLayout">
+
+    <!-- ContentDescription: root layout is marked as focusable programmatically, so an
+         accessibility text will be read for the entire content. -->
+    <ImageView
+        android:id="@+id/icon_view"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginEnd="2dp"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:padding="4dp"
+        tools:background="@android:drawable/checkbox_on_background"
+        tools:ignore="ContentDescription"
+        tools:src="@android:drawable/arrow_down_float"/>
+
+    <com.google.android.flexbox.FlexboxLayout
+        android:id="@+id/number_row"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@id/icon_view"
+        app:alignContent="flex_start"
+        app:alignItems="baseline"
+        app:flexWrap="wrap">
+
+        <TextView
+            android:id="@+id/progress_text"
+            style="@style/AppTheme.Progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12"/>
+
+        <TextView
+            android:id="@+id/goal_text"
+            style="@style/AppTheme.Goal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1sp"
+            android:text="/24"/>
+    </com.google.android.flexbox.FlexboxLayout>
+
+    <Space
+        android:id="@+id/margin_spacer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="20dp"
+        android:layout_alignTop="@id/icon_view"
+        android:layout_toEndOf="@id/icon_view"/>
+
+    <TextView
+        android:id="@+id/metric_text"
+        style="@style/AppTheme.Metric"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/number_row"
+        android:layout_toEndOf="@id/icon_view"
+        android:text="metric"/>
+
+</merge>

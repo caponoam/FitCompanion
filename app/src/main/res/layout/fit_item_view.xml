@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="50dp"
+    android:layout_marginBottom="20dp"
+    android:gravity="center_vertical">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="10dp">
+
+        <TextView
+            android:id="@+id/txtName"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="start"
+            android:paddingRight="10dp"
+            android:text="Activity name"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="5dp">
+            <TextView
+                android:id="@+id/txtDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:gravity="start"
+                android:paddingRight="10dp"
+                android:text="Tue Apr 3 -"/>
+
+            <TextView
+                android:id="@+id/txtDuration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:paddingRight="10dp"
+                android:layout_toEndOf="@id/txtDate"
+                android:layout_toRightOf="@id/txtDate"
+                android:text="5hr 10 min -"/>
+
+            <TextView
+                android:id="@+id/txtRolls"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:paddingRight="20dp"
+                android:layout_toEndOf="@id/txtDuration"
+                android:layout_toRightOf="@id/txtDuration"
+                android:text="5 rolls"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txtPosition"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="invisible"/>
+    </LinearLayout>
+</RelativeLayout>
