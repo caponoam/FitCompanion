@@ -268,6 +268,15 @@ public class MainActivity extends AppCompatActivity {
                     ""+ hoursGoal, "hours");
             rollsProgressView.dataBind(stats.getRolls(), rollsGoal, "rolls");
 
+            // Medium
+            TextView txtCountGi = findViewById(R.id.txtCountGi);
+            TextView txtCountNoGi = findViewById(R.id.txtCountNoGi);
+            TextView txtCountOpenMat = findViewById(R.id.txtCountOpenMat);
+
+            txtCountGi.setText("Gi: " + stats.getCountGi());
+            txtCountNoGi.setText("No-gi: " + stats.getCountNoGi());
+            txtCountOpenMat.setText("Open mat: " + stats.getCountOpenMat());
+
             // List of activities
             RecyclerView recyclerViewDetails = findViewById(R.id.recyclerViewDetails);
             recyclerViewDetails.setHasFixedSize(true);

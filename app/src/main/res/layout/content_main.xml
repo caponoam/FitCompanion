@@ -145,6 +145,38 @@
 
     <LinearLayout
         android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:padding="5dp"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:layout_toEndOf="@id/scoreCardLayoutRow2"
+        app:layout_constraintTop_toBottomOf="@+id/scoreCardLayoutRow2">
+
+        <TextView
+            android:id="@+id/txtCountGi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:padding="5dp"
+            android:text="Gi: 15" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtCountNoGi"
+            android:padding="5dp"
+            android:text="No-gi: 22"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtCountOpenMat"
+            android:padding="5dp"
+            android:text="Open mat: 2"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="363dp"
         android:layout_marginTop="100dp"
         android:orientation="vertical"
