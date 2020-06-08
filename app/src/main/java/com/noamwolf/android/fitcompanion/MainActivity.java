@@ -14,6 +14,7 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
+import com.google.common.collect.Ordering;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.noamwolf.android.fitcompanion.model.Session;
@@ -40,9 +41,12 @@ import org.apache.commons.lang3.time.DurationFormatUtils;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
+
+import javax.annotation.Nullable;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -357,8 +361,17 @@ class ActivityAdapter extends RecyclerView.Adapter<ActivityAdapter.ActivityViewH
 
     }
 
+    class OrderByStartDate extends Ordering<com.noamwolf.android.fitcompanion.model.Activity> {
+        @Override
+        public int compare(@Nullable com.noamwolf.android.fitcompanion.model.Activity left,
+                           @Nullable com.noamwolf.android.fitcompanion.model.Activity right) {
+            return Long.compare(right.getStartTimeMillis(), left.getStartTimeMillis());
+        }
+    }
+
     public ActivityAdapter(Iterable<com.noamwolf.android.fitcompanion.model.Activity> activities, Activity context) {
-        this.activities = Lists.newArrayList(activities);
+        this.activities = Lists.newLinkedList(activities);
+        Collections.sort(this.activities, new OrderByStartDate());
         this.context = context;
     }
 
