@@ -40,6 +40,7 @@ import android.widget.TextView;
 import org.apache.commons.lang3.time.DurationFormatUtils;
 
 import java.text.SimpleDateFormat;
+import java.time.YearMonth;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.List;
@@ -225,10 +226,10 @@ public class MainActivity extends AppCompatActivity {
         currentMonth = month;
         currentYear = year;
 
-        // TODO: do something better.
-        Calendar date = Calendar.getInstance();
-        date.set(year, month+1, 1);
-        int lastDay = date.getActualMaximum(Calendar.DAY_OF_MONTH);
+        int lastDay =
+            YearMonth.of(year, month).lengthOfMonth();
+
+//        Log.println(Log.INFO, "*** LAST DAY ***", "" + lastDay);
 
         TextView txtTitle = findViewById(R.id.txtMonthOfValue);
         txtTitle.setText(MONTH_NAME_MAPPER.get(month) + " " + year);
