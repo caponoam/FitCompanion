@@ -161,19 +161,19 @@
             android:layout_height="wrap_content"
 
             android:padding="5dp"
-            android:text="Gi: 15" />
+            android:text="Gi: -" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/txtCountNoGi"
             android:padding="5dp"
-            android:text="No-gi: 22"/>
+            android:text="No-gi: -"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/txtCountOpenMat"
             android:padding="5dp"
-            android:text="Open mat: 2"/>
+            android:text="Open mat: -"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="fill_parent"

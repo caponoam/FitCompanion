@@ -88,6 +88,8 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        // Show loading screen
+
         context = this;
         am = AccountManager.get(context);
 
@@ -237,6 +239,8 @@ public class MainActivity extends AppCompatActivity {
         AsyncTask<String, Void, String> asyncTask = fitDataFetcherTask.execute(authToken);
         try {
             setMonthlyStats(asyncTask.get());
+
+            // Remove loading screen
         } catch (ExecutionException e) {
             Log.println(Log.ERROR, "DataFetcher failed", e.getMessage());
             e.printStackTrace();

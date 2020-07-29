@@ -153,6 +153,9 @@ public class YearlyStats extends AppCompatActivity {
             txtOpenMat.setText("Open mat: " + stats.getCountOpenMat());
             txtKidsParents.setText("Kids & Parents: " + stats.getCountKidsParents());
 
+
+//            stats.getDayHistogram()
+
         } else {
             Log.println(Log.ERROR,"error", "uh oh results was empty bro.");
         }
