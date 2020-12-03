@@ -43,7 +43,23 @@ public class ActivityStatsHelper {
 		}
 		return false;
 	}
-	
+
+	public boolean isCoachSession(Activity session) {
+		if (session != null) {
+			String pattern = "coach";
+			String name = session.getName().toLowerCase();
+			if (name.contains(pattern)) {
+				return true;
+			} else {
+				String description = session.getDescription().toLowerCase();
+				if (description.contains(pattern)) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
 	public String createCsvForMonth(MonthlyStats stats) {
 		StringBuilder sb = new StringBuilder();
 		
@@ -70,6 +86,7 @@ public class ActivityStatsHelper {
 		int countRolls = 0;
 		int countKandP = 0;
 		int countTotal = 0;
+		int countCoach = 0;
 		long totalDuration = 0;
 
 		for (Activity session : bjjSessions) {
@@ -100,6 +117,9 @@ public class ActivityStatsHelper {
 				countGi++;
 			}
 
+			// Parse "Coach"
+			countCoach += isCoachSession(session) ? 1: 0;
+
 			// Parse "Private"
 			countPrivates += isPrivateSession(session) ? 1 : 0;
 
@@ -116,6 +136,7 @@ public class ActivityStatsHelper {
 		stats.setCountOpenMat(countOpenMat);
 		stats.setCountPrivates(countPrivates);
 		stats.setCountKidsParents(countKandP);
+		stats.setCountCoach(countCoach);
 		stats.setRolls(countRolls);
 		stats.setTotalCount(countTotal);
 		stats.setDuration(totalDuration);
@@ -223,8 +244,11 @@ public class ActivityStatsHelper {
 		}
 		return sb.toString();
 	}
-	
-	public MonthlyStats calculateMonthlyStats(Integer activityTypeIdKey, Integer month, Iterable<Activity> sessions) {
+
+	/**
+	 * TODO(nwolf): remove - unused.
+	 */
+    public MonthlyStats calculateMonthlyStats(Integer activityTypeIdKey, Integer month, Iterable<Activity> sessions) {
 		MonthlyStats monthlyStats = new MonthlyStats(month, activityTypeIdKey, 1);
 		long duration = 0;
 		int rolls = 0;
@@ -234,6 +258,7 @@ public class ActivityStatsHelper {
 		int countKandP = 0;
 		int countGi = 0;
 		int countPrivates = 0;
+		int countCoach = 0;
 		for (Activity session : sessions) {
 		    if (session.getActivityType() != activityTypeIdKey) continue;
 		    count++;
@@ -265,6 +290,8 @@ public class ActivityStatsHelper {
 				countGi++;
 			}
 
+			// Parse "Coach"
+			countCoach += isCoachSession(session) ? 1 : 0;
 			// Parse "Private"
 			countPrivates += isPrivateSession(session) ? 1 : 0;
 		}
@@ -275,6 +302,7 @@ public class ActivityStatsHelper {
 		monthlyStats.setDuration(duration);
 		monthlyStats.setRolls(rolls);
 		monthlyStats.setTotalCount(count);
+		monthlyStats.setCountCoach(countCoach);
 		return monthlyStats;
 	}
 }

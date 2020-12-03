@@ -18,6 +18,16 @@ public class MonthlyStats {
 	private int countOpenMat;
 	private int countPrivates;
 	private int countKidsParents;
+	private int countCoach;
+
+	public int getCountCoach() {
+		return countCoach;
+	}
+
+	public void setCountCoach(int countCoach) {
+		this.countCoach = countCoach;
+	}
+
 	private Map<String, Integer> dayHistogram = Maps.newLinkedHashMap();
 
 	public MonthlyStats() {}

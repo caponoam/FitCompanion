@@ -148,10 +148,12 @@ public class YearlyStats extends AppCompatActivity {
             TextView txtNoGi = findViewById(R.id.txtNoGi);
             TextView txtOpenMat = findViewById(R.id.txtOpenMat);
             TextView txtKidsParents = findViewById(R.id.txtKidParents);
+            TextView txtCoach = findViewById(R.id.txtCountCoach);
             txtGi.setText("Gi: " + stats.getCountGi());
             txtNoGi.setText("No-gi: " + stats.getCountNoGi());
             txtOpenMat.setText("Open mat: " + stats.getCountOpenMat());
             txtKidsParents.setText("Kids & Parents: " + stats.getCountKidsParents());
+            txtCoach.setText("Coach: " + stats.getCountCoach());
 
 
 //            stats.getDayHistogram()

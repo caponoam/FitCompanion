@@ -156,22 +156,28 @@
             android:id="@+id/txtGi"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Gi: 66" />
+            android:text="Gi: -" />
         <TextView
             android:id="@+id/txtNoGi"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="No-gi: 23" />
+            android:text="No-gi: -" />
         <TextView
             android:id="@+id/txtOpenMat"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Open mat: 12" />
+            android:text="Open mat: -" />
         <TextView
             android:id="@+id/txtKidParents"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Kids Parents: 12" />
+            android:text="Kids Parents: -" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtCountCoach"
+            android:text="Coach: -"/>
     </LinearLayout>
 
 
