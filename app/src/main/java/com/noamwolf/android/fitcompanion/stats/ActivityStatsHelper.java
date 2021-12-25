@@ -27,6 +27,34 @@ public class ActivityStatsHelper {
 		}
 		return rolls == null ? 0 : rolls;
 	}
+
+	public static int getSubmissionsFromDescription(String description) {
+		if (Strings.isNullOrEmpty(description)) {
+			return 0;
+		}
+		Integer rolls = null;
+		String pattern = "[subs]:";
+		Pattern p = Pattern.compile(pattern);
+		String[] split = p.split(description.toLowerCase().trim());
+		if (split.length == 2) {
+			rolls = Ints.tryParse(split[1].trim());
+		}
+		return rolls == null ? 0 : rolls;
+	}
+
+	public static int getTapsFromDescription(String description) {
+		if (Strings.isNullOrEmpty(description)) {
+			return 0;
+		}
+		Integer rolls = null;
+		String pattern = "[taps]:";
+		Pattern p = Pattern.compile(pattern);
+		String[] split = p.split(description.toLowerCase().trim());
+		if (split.length == 2) {
+			rolls = Ints.tryParse(split[1].trim());
+		}
+		return rolls == null ? 0 : rolls;
+	}
 	
 	public boolean isPrivateSession(Activity session) {
 		if (session != null) {
@@ -230,9 +258,9 @@ public class ActivityStatsHelper {
 	 */
 	public String printActivityMonthyStats(MonthlyStats stats, boolean withDetail) {
 		StringBuilder sb = new StringBuilder();
-		sb.append("Month: " + stats.getMonth()).append("\n");;
-		sb.append("Totals for " + Activity.getTypeById(stats.getActivityTypeId()) + " (" + stats.getActivityTypeId() + ")").append("\n");;
-		sb.append("Count: " + stats.getTotalCount()).append("\n");;
+		sb.append("Month: " + stats.getMonth()).append("\n");
+		sb.append("Totals for " + Activity.getTypeById(stats.getActivityTypeId()) + " (" + stats.getActivityTypeId() + ")").append("\n");
+		sb.append("Count: " + stats.getTotalCount()).append("\n");
 		
 		if (stats.getActivityTypeId() == 44) {
 			sb.append("Rolls: " + stats.getRolls()).append("\n");
